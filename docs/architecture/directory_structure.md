@@ -3,7 +3,7 @@
 This file provides the high-level tree for the repository.
 
 ```text
-project-template/
+personal-website/
 |-- AGENTS.md
 |-- README.md
 |-- compose.yml
