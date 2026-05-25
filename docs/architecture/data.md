@@ -1,25 +1,22 @@
 # Data
 
-This template uses MongoDB as the primary application datastore and Redis as an
-ephemeral cache service.
+This site does not use a backend, database, cache, or application datastore.
 
 
 ## Environment Mapping
 
-- `DATABASE_URL`: MongoDB connection string used by backend runtime.
-- `DATABASE_NAME`: MongoDB database name used by backend runtime.
-- `REDIS_URL`: Redis connection string reserved for cache or queue workflows.
+- No runtime environment variables are required for the current static site.
 
 
 ## Data Ownership
 
-- MongoDB stores application entities, document records, and metadata.
-- Redis stores transient data only, such as cache entries, short-lived locks,
-  and queue state.
+- Page content currently lives directly in route files under
+  `frontend/src/app/`.
+- Static files live under `frontend/public/` and are served directly by Next.js.
+- The resume PDF is generated from `resume/resume_short.tex` and served as
+  `frontend/public/resume_short.pdf`.
 
 
 ## Local Development
 
-- Docker Compose service `database` runs MongoDB on the internal Compose network.
-- Docker Compose service `redis` runs Redis on the internal Compose network.
-- Backend receives all data service configuration from `.env`.
+- Local development runs the frontend only with `pnpm dev` from `frontend/`.

@@ -1,66 +1,43 @@
 # Commands
 
-Commands must be run from the repository root.
+Commands must be run from `frontend/` unless noted otherwise.
 
 
 ## Validation Policy
 
-- Docker Compose is the required execution path for validation commands.
-- Run lint, typecheck, tests, and format checks through service containers.
-- If validation fails due to missing environment variables, report missing keys
-  instead of patching app defaults.
+- Validation runs directly through pnpm.
+- CI runs frontend lint, typecheck, format checks, and LaTeX resume compilation.
 
 
 ## Bootstrap
 
-- `cp .env.example .env` creates local environment configuration.
-- `docker compose up --build` starts database, redis, backend, and frontend.
-- `docker compose down` stops and removes stack containers.
+- `pnpm install` installs frontend dependencies.
+- `pnpm dev` starts the Next.js development server.
 
 
 ## Testing
 
-- `docker compose run --rm backend uv run pytest tests` runs backend tests.
-- Frontend test scaffolding exists under `frontend/tests/` and is not yet wired
-  into a frontend package script.
+- No test runner is currently configured.
 
 
 ## Lint
 
-- `docker compose run --rm frontend pnpm lint` runs frontend lint checks.
-- `docker compose run --rm backend uv run ruff check .` runs backend lint
-  checks.
+- `pnpm lint` runs frontend lint checks.
 
 
 ## Type Check
 
-- `docker compose run --rm frontend pnpm typecheck` runs frontend TypeScript
-  checks (`tsc --noEmit`).
-- `docker compose run --rm backend uv run mypy app` runs backend type checks.
+- `pnpm typecheck` runs frontend TypeScript checks.
 
 
 ## Format
 
-- `docker compose run --rm frontend pnpm format:check` runs frontend format
-  checks.
-- `docker compose run --rm backend uv run ruff format --check .` runs backend
-  format checks.
+- `pnpm format:check` checks frontend formatting.
+- `pnpm format` formats frontend files.
 
 
 ## Build
 
-- `docker compose build frontend` builds frontend image from the shared
-  multi-stage Dockerfile.
-- `docker compose build backend` builds backend image.
-
-
-## Infrastructure And Utilities
-
-- `docker compose logs -f backend` tails backend container logs.
-- `docker compose logs -f frontend` tails frontend container logs.
-- `docker compose logs -f database` tails MongoDB container logs.
-- `docker compose logs -f redis` tails Redis container logs.
-- `docker compose exec backend uv run pytest tests` runs backend tests inside
-  an already-running backend container.
-- `docker compose exec frontend pnpm lint` runs frontend lint inside an
-  already-running frontend container.
+- `pnpm build` builds the production site.
+- From the repository root, `make -C resume build` compiles
+  `resume/resume_short.tex` to `frontend/public/resume_short.pdf`.

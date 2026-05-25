@@ -5,26 +5,25 @@ This file defines mandatory operating rules for any coding agent working in this
 
 ## Project Overview
 
-[PROJECT OVERVIEW GOES HERE]
+This repository contains a lightweight frontend-only personal website.
 
 ## Architecture
 
 ### Stack overview
-- Frontend: Next.js App Router, TypeScript, Clerk, Shadcn, TanStack Query, Tailwind CSS
-- Backend: FastAPI, Pydantic.
-- Data: MongoDB database, Redis cache.
-- Deployment: Railway
+- Frontend: Next.js App Router, TypeScript, Shadcn, Tailwind CSS
+- Backend: none
+- Data: static route content and files in `frontend/public/`
 
 ## Documentation
 
 ### Definitions 
 
 #### Syntax 
-- `docs/commands.md` - contains a detailed description of each command. All commands must be run from the repository root.
+- `docs/commands.md` - contains a detailed description of each command.
 - `docs/style.md` - contains naming rules, file conventions, layering expectations, and code style requirements.
 
 #### Architecture
-- `docs/architecture/data.md` - contains the database and object storage model, domain ownership, and environment mapping.
+- `docs/architecture/data.md` - contains static data ownership and environment mapping.
 - `docs/architecture/decisions.md` - contains reverse chronological architecture decisions with date, rationale, and impact.
 - `docs/architecture/directory_structure.md` - contains the canonical ascii file tree and purpose of each directory.
 

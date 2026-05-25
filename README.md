@@ -1,73 +1,109 @@
-# Project Template
+# Personal Website
 
-This repository is a full-stack template with a minimal working scaffold:
-- Next.js frontend (`frontend/`)
-- FastAPI backend (`backend/`)
-- MongoDB database (`database` service in Docker Compose)
-- Redis cache (`redis` service in Docker Compose)
+This repository contains a lightweight personal website built with Next.js,
+TypeScript, Tailwind CSS, and Shadcn-compatible styling.
 
 
 ## Quickstart
 
-1. Use this template on GitHub and clone your new repository.
-2. Run the rename script from the repository root:
+Run commands from `frontend/`.
 
 ```bash
-./init_template.sh your-project-slug
+pnpm install
+pnpm dev
 ```
 
-3. Copy environment variables:
+Open `http://localhost:3000`.
+
+
+## Pages
+
+- Home: `frontend/src/app/page.tsx`
+- Projects: `frontend/src/app/projects/page.tsx`
+
+
+## Frontend Structure
+
+The frontend uses the Next.js App Router.
+
+```text
+frontend/
+|-- public/
+|   |-- headshot.jpg
+|   `-- resume_short.pdf
+|-- src/
+|   |-- app/
+|   |   |-- globals.css
+|   |   |-- layout.tsx
+|   |   |-- page.tsx
+|   |   `-- projects/
+|   |       `-- page.tsx
+|   |-- components/
+|   |   |-- photos/
+|   |   |-- projects/
+|   |   `-- ui/
+|   `-- lib/
+|       `-- utils.ts
+|-- resume/
+|   |-- Makefile
+|   `-- resume_short.tex
+```
+
+- `frontend/src/app/`: route files, layout, and global styles.
+- `frontend/src/components/`: reusable photo, project, and UI components.
+- `frontend/src/lib/`: shared frontend utilities.
+- `frontend/public/`: static assets served directly from the site root.
+- `resume/`: LaTeX resume source and local build target.
+
+Files in `frontend/public/` are available by path. For example,
+`frontend/public/profile.jpg` is served at `/profile.jpg`.
+
+
+## Commands
+
+- `pnpm dev` starts the local development server.
+- `pnpm build` builds the production site.
+- `pnpm lint` runs ESLint.
+- `pnpm typecheck` runs TypeScript checks.
+- `pnpm format:check` checks formatting.
+- `pnpm format` formats frontend files.
+- `make -C ../resume build` compiles `resume/resume_short.tex` to
+  `frontend/public/resume_short.pdf` when run from `frontend/`.
+
+
+## Resume
+
+The resume source lives at `resume/resume_short.tex`. The generated PDF is
+served from `frontend/public/resume_short.pdf` and is linked from the navbar.
+
+From the repository root:
 
 ```bash
-cp .env.example .env
+make -C resume build
 ```
 
-4. Start the full stack:
 
-```bash
-docker compose up --build
-```
+## Static Assets
 
-5. Verify services:
-- Frontend: `http://localhost:3000`
-- Backend health: `http://localhost:8000/health`
+Use `frontend/public/` for files that should be downloaded or displayed by the
+browser without being imported into code.
 
-6. Set up for local development (if desired):
-- Frontend: `cd frontend && pnpm install`
-- Backend: `cd backend && uv sync`
+Examples:
 
-## Rename Guidance
-
-This template uses the token `personal-website` across package names, container
-names, and docs.
-
-- `init_template.sh` replaces `personal-website` in text files with the
-  slug you pass.
-- It updates values like `personal-website-backend` and
-  `personal-website-database` automatically.
-- It skips common generated and binary paths.
-
-Recommended slug format: lowercase letters, numbers, and hyphens.
+- Profile photo
+- Project screenshots
+- Research PDFs
+- Resume PDF
+- Static icons
 
 
-## What Works Out Of The Box
+## Data
 
-- `docker compose up --build` launches database, redis, backend, and frontend.
-- Frontend serves a minimal homepage from `frontend/src/app/page.tsx`.
-- Backend serves `/health` from `backend/app/api/endpoints/health.py`.
-- Backend runtime is configured with database-agnostic environment keys:
-  `DATABASE_URL` and `DATABASE_NAME`.
+There is no backend and no database. Page content currently lives directly in
+the relevant route files.
 
 
-## Clerk Variables
-
-`NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` are intentionally
-kept in `.env.example` for future auth integration.
-
-Auth is not wired in this scaffold yet.
-
-
-## Boilerplate Generation
+## Shadcn
 
 Shadcn components are generated only when needed.
 
@@ -79,11 +115,3 @@ pnpm dlx shadcn@latest add button card input form
 ```
 
 Add components incrementally instead of generating a large UI set up front.
-
-
-## Production Note
-
-Production deployment targets Railway.
-
-Frontend and backend are built and deployed as separate services using
-`frontend/Dockerfile` and `backend/Dockerfile`.

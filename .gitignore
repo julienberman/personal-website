@@ -33,6 +33,10 @@ next-env.d.ts
 # Vercel
 .vercel
 
-
-
+# LaTeX
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
 

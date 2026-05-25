@@ -11,18 +11,6 @@ This document defines naming, formatting, and code-organization conventions.
 - Keep names concise and descriptive.
 
 
-## Backend Python Style
-
-- Follow PEP8 wherever possible.
-- Use spaces, not tabs.
-- Keep lines at or below 79 characters when practical.
-- Current backend is a flat scaffold rooted in `backend/`.
-- Keep runtime wiring in `backend/app/` and add domain modules as top-level
-  packages when implementation begins.
-- Keep route handlers thin and delegate behavior to services.
-- Add comments only when a non-obvious block requires explanation.
-
-
 ## Frontend TypeScript Style
 
 - Use path alias `@/*` mapped to `frontend/src/*`.

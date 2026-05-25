@@ -6,8 +6,6 @@ This file provides the high-level tree for the repository.
 personal-website/
 |-- AGENTS.md
 |-- README.md
-|-- compose.yml
-|-- .env.example
 |-- .github/
 |   `-- workflows/
 |       `-- ci.yml
@@ -18,57 +16,53 @@ personal-website/
 |       |-- data.md
 |       |-- decisions.md
 |       `-- directory_structure.md
-|-- backend/
-|   |-- app/
-|   |   |-- api/
-|   |   |   |-- endpoints/
-|   |   |   `-- models/
-|   |   |-- configs/
-|   |   |-- data/
-|   |   |-- exceptions/
-|   |   |-- infra/
-|   |   |-- init/
-|   |   |-- main.py
-|   |   `-- services/
-|   |-- Dockerfile
-|   |-- tests/
-|   |   |-- integration/
-|   |   `-- unit/
-|   |-- pyproject.toml
-|   `-- uv.lock
 |-- frontend/
 |   |-- Dockerfile
 |   |-- package.json
 |   |-- tsconfig.json
 |   |-- postcss.config.mjs
 |   |-- next.config.ts
-|   |-- src/
-|   |   |-- app/
-|   |   |-- components/
-|   |   |-- lib/
-|   |   `-- types/
-|   `-- tests/
-|       `-- unit/
+|   |-- public/
+|   |   |-- headshot.jpg
+|   |   `-- resume_short.pdf
+|   `-- src/
+|       |-- app/
+|       |   |-- globals.css
+|       |   |-- layout.tsx
+|       |   |-- page.tsx
+|       |   `-- projects/
+|       |       `-- page.tsx
+|       |-- components/
+|       |   |-- photos/
+|       |   |   `-- photo_card.tsx
+|       |   |-- projects/
+|       |   |   |-- research_card.tsx
+|       |   |   `-- software_card.tsx
+|       |   `-- ui/
+|       |       `-- copy_button.tsx
+|       `-- lib/
+|           `-- utils.ts
+|-- resume/
+|   |-- Makefile
+|   `-- resume_short.tex
 ```
+
 
 ## Directory Purpose
 
 - `docs/`: project documentation and architecture standards.
-- `backend/`: backend runtime, lockfile, and container build.
-- `backend/app/`: backend package root.
-- `backend/app/api/`: FastAPI endpoints and Pydantic models.
-- `backend/app/configs/`: runtime settings and environment parsing.
-- `backend/app/infra/`: infrastructure adapters, including Mongo client setup.
-- `backend/app/init/`: dependency-injection container scaffolding.
-- `backend/tests/`: backend unit and integration test suites.
-- `frontend/`: Next.js scaffold and frontend dependencies.
+- `frontend/`: Next.js app, static assets, and frontend dependencies.
+- `frontend/public/`: static assets served from the site root.
 - `frontend/src/app/`: route composition and app-level layout/pages.
 - `frontend/src/app/globals.css`: global CSS entrypoint and Tailwind import.
-- `frontend/src/components/`: shared UI components.
+- `frontend/src/components/photos/`: photo-oriented display components.
+- `frontend/src/components/projects/`: project card components.
+- `frontend/src/components/ui/`: shared UI primitives.
 - `frontend/src/lib/`: shared frontend utilities.
-- `frontend/tests/`: frontend test scaffolding.
-- `compose.yml`: local full-stack orchestration.
+- `resume/`: LaTeX resume source and build target.
+
 
 ## Notes
 
-- Docker Compose is the single entrypoint for local full-stack development.
+- The site is frontend-only.
+- There is no backend, database, cache, or Docker Compose runtime.
