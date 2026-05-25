@@ -39,5 +39,5 @@ Commands must be run from `frontend/` unless noted otherwise.
 ## Build
 
 - `pnpm build` builds the production site.
-- From the repository root, `make -C resume build` compiles
-  `resume/resume_technical.tex` to `frontend/public/resume_technical.pdf`.
+- From the repository root, `make -C resume build` compiles the selected resume
+  template to the stable public artifact `frontend/public/resume.pdf`.

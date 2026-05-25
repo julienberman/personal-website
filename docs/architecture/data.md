@@ -15,8 +15,8 @@ This site does not use a backend, database, cache, or application datastore.
 - Static files live under `frontend/public/` and are served directly by Next.js.
 - Research PDFs live under `frontend/public/research/` and are linked from the
   projects page.
-- The resume PDF is generated from `resume/resume_technical.tex` and served as
-  `frontend/public/resume_technical.pdf`.
+- The resume PDF is generated from the selected template under `resume/` and
+  served as the stable public artifact `frontend/public/resume.pdf`.
 
 
 ## Local Development

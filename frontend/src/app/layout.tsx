@@ -64,11 +64,7 @@ export default function RootLayout({
                 <Link href="/projects">Projects</Link>
               </Button>
               <Button asChild size="nav" variant="ghost">
-                <a
-                  href="/resume.pdf"
-                  rel="noreferrer"
-                  target="_blank"
-                >
+                <a href="/resume.pdf" rel="noreferrer" target="_blank">
                   Resume
                 </a>
               </Button>

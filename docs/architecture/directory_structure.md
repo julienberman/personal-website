@@ -24,7 +24,7 @@ personal-website/
 |   |-- next.config.ts
 |   |-- public/
 |   |   |-- headshot.jpg
-|   |   `-- resume_technical.pdf
+|   |   `-- resume.pdf
 |   `-- src/
 |       |-- app/
 |       |   |-- globals.css
