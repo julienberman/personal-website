@@ -1,4 +1,4 @@
-import { GithubLogo, GlobeSimple } from "@phosphor-icons/react/dist/ssr";
+import { Code, GlobeSimple } from "@phosphor-icons/react/dist/ssr";
 
 import {
   Card,
@@ -23,15 +23,15 @@ export function SoftwareCard({
   repo_link,
 }: SoftwareCardProps) {
   return (
-    <Card className="border border-border">
+    <Card className="h-full min-h-96 border border-border transition duration-200 hover:-translate-y-1 hover:shadow-lg">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="text-center font-bold">{title}</CardTitle>
       </CardHeader>
-      <CardContent className="text-sm leading-6">
-        <p>{description}</p>
+      <CardContent className="flex-1 text-sm leading-6">
+        <p className="text-left">{description}</p>
       </CardContent>
       {website_link || repo_link ? (
-        <CardFooter className="gap-2">
+        <CardFooter className="grid grid-cols-2 gap-3">
           {website_link ? (
             <Button asChild size="sm">
               <a href={website_link} rel="noreferrer" target="_blank">
@@ -43,8 +43,8 @@ export function SoftwareCard({
           {repo_link ? (
             <Button asChild size="sm">
               <a href={repo_link} rel="noreferrer" target="_blank">
-                <GithubLogo className="size-4" weight="regular" />
-                Repository
+                <Code className="size-4" weight="regular" />
+                Code
               </a>
             </Button>
           ) : null}

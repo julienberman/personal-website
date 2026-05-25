@@ -1,4 +1,7 @@
-import { DownloadSimple } from "@phosphor-icons/react/dist/ssr";
+"use client";
+
+import { Code, FileText } from "@phosphor-icons/react";
+import { useState } from "react";
 
 import {
   Card,
@@ -12,45 +15,74 @@ import { Button } from "@/components/ui/button";
 type ResearchCardProps = {
   title: string;
   abstract: string;
-  advisors: string[];
-  data_availability: "on_request" | "available";
-  paper_link?: string;
-};
-
-const data_availability_labels = {
-  available: "Data available",
-  on_request: "Data available on request",
+  description: string;
+  paper_link: string;
+  repo_link: string;
 };
 
 export function ResearchCard({
   title,
   abstract,
-  advisors,
-  data_availability,
+  description,
   paper_link,
+  repo_link,
 }: ResearchCardProps) {
+  const [is_expanded, set_is_expanded] = useState(false);
+
   return (
-    <Card className="border border-border">
+    <Card
+      className="h-full min-h-96 cursor-pointer border border-border transition duration-200 hover:-translate-y-1 hover:shadow-lg"
+      onClick={() => set_is_expanded((current) => !current)}
+    >
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="text-center font-bold">{title}</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4 text-sm leading-6">
-        <p>{abstract}</p>
-        <div className="space-y-1 text-xs uppercase tracking-[0.18em]">
-          <p>Advisors: {advisors.join(", ")}</p>
-          <p>{data_availability_labels[data_availability]}</p>
+      <CardContent className="flex-1 space-y-4 text-sm leading-6">
+        <div className="space-y-2">
+          <p
+            className={
+              is_expanded
+                ? "text-left"
+                : "line-clamp-6 text-left md:line-clamp-7"
+            }
+          >
+            <span className="font-bold">Abstract: </span>
+            {abstract}
+          </p>
+          {!is_expanded ? (
+            <p className="text-center text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
+              See More
+            </p>
+          ) : null}
         </div>
+        <p className="text-left text-sm italic text-muted-foreground">
+          {description}
+        </p>
       </CardContent>
-      {paper_link ? (
-        <CardFooter>
-          <Button asChild size="sm">
-            <a href={paper_link} rel="noreferrer" target="_blank">
-              <DownloadSimple className="size-4" weight="regular" />
-              Paper
-            </a>
-          </Button>
-        </CardFooter>
-      ) : null}
+      <CardFooter className="grid grid-cols-2 gap-3">
+        <Button asChild size="sm">
+          <a
+            href={paper_link}
+            onClick={(event) => event.stopPropagation()}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <FileText className="size-4" weight="regular" />
+            Paper
+          </a>
+        </Button>
+        <Button asChild size="sm">
+          <a
+            href={repo_link}
+            onClick={(event) => event.stopPropagation()}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <Code className="size-4" weight="regular" />
+            Code
+          </a>
+        </Button>
+      </CardFooter>
     </Card>
   );
 }

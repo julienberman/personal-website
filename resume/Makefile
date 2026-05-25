@@ -1,4 +1,4 @@
-PDF_OUTPUT = ../frontend/public/resume_technical.pdf
+PDF_OUTPUT = ../frontend/public/resume.pdf
 TEX_SOURCE = resume_technical.tex
 
 .PHONY: build clean

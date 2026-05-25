@@ -65,7 +65,7 @@ export default function RootLayout({
               </Button>
               <Button asChild size="nav" variant="ghost">
                 <a
-                  href="/resume_technical.pdf"
+                  href="/resume.pdf"
                   rel="noreferrer"
                   target="_blank"
                 >
