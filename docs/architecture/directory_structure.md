@@ -24,7 +24,7 @@ personal-website/
 |   |-- next.config.ts
 |   |-- public/
 |   |   |-- headshot.jpg
-|   |   `-- resume_short.pdf
+|   |   `-- resume_technical.pdf
 |   `-- src/
 |       |-- app/
 |       |   |-- globals.css
@@ -44,7 +44,7 @@ personal-website/
 |           `-- utils.ts
 |-- resume/
 |   |-- Makefile
-|   `-- resume_short.tex
+|   `-- resume_technical.tex
 ```
 
 

@@ -91,9 +91,9 @@ jobs:
       - name: Compile resume
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: resume_short.tex
+          root_file: resume_technical.tex
           working_directory: resume
       - name: Copy resume PDF
-        run: cp resume/resume_short.pdf frontend/public/resume_short.pdf
+        run: cp resume/resume_technical.pdf frontend/public/resume_technical.pdf
       - name: Check public resume PDF
-        run: test -f frontend/public/resume_short.pdf
+        run: test -f frontend/public/resume_technical.pdf

@@ -40,4 +40,4 @@ Commands must be run from `frontend/` unless noted otherwise.
 
 - `pnpm build` builds the production site.
 - From the repository root, `make -C resume build` compiles
-  `resume/resume_short.tex` to `frontend/public/resume_short.pdf`.
+  `resume/resume_technical.tex` to `frontend/public/resume_technical.pdf`.

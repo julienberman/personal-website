@@ -76,16 +76,12 @@ export default function Home() {
 
         <div className="max-w-3xl space-y-5 text-lg leading-8">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            vitae erat sit amet justo luctus interdum. Donec sagittis, nibh sed
-            volutpat fermentum, massa lorem suscipit neque, non gravida sapien
-            arcu vitae lectus.
-          </p>
-          <p>
-            Praesent at sapien sed mi cursus pulvinar. Curabitur mattis, augue
-            vel faucibus faucibus, justo sem facilisis risus, vitae placerat
-            lectus ipsum sed erat. Sed non turpis euismod, dictum mi in,
-            consequat lacus.
+            I am a senior at Harvard interested in economics, politics, and
+            artificial intelligence. My thesis, advised by Professor Jesse
+            Shapiro, argues that local newspaper coverage can reduce the spread
+            of online misinformation about vaccines and immigration. I also
+            write data-driven opinion articles about the macroeconomy, social
+            policy, and U.S. elections.
           </p>
         </div>
       </section>

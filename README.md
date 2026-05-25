@@ -30,7 +30,7 @@ The frontend uses the Next.js App Router.
 frontend/
 |-- public/
 |   |-- headshot.jpg
-|   `-- resume_short.pdf
+|   `-- resume_technical.pdf
 |-- src/
 |   |-- app/
 |   |   |-- globals.css
@@ -46,7 +46,7 @@ frontend/
 |       `-- utils.ts
 |-- resume/
 |   |-- Makefile
-|   `-- resume_short.tex
+|   `-- resume_technical.tex
 ```
 
 - `frontend/src/app/`: route files, layout, and global styles.
@@ -67,14 +67,14 @@ Files in `frontend/public/` are available by path. For example,
 - `pnpm typecheck` runs TypeScript checks.
 - `pnpm format:check` checks formatting.
 - `pnpm format` formats frontend files.
-- `make -C ../resume build` compiles `resume/resume_short.tex` to
-  `frontend/public/resume_short.pdf` when run from `frontend/`.
+- `make -C ../resume build` compiles `resume/resume_technical.tex` to
+  `frontend/public/resume_technical.pdf` when run from `frontend/`.
 
 
 ## Resume
 
-The resume source lives at `resume/resume_short.tex`. The generated PDF is
-served from `frontend/public/resume_short.pdf` and is linked from the navbar.
+The resume source lives at `resume/resume_technical.tex`. The generated PDF is
+served from `frontend/public/resume_technical.pdf` and is linked from the navbar.
 
 From the repository root:
 
