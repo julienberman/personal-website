@@ -44,7 +44,9 @@ personal-website/
 |           `-- utils.ts
 |-- resume/
 |   |-- Makefile
-|   `-- resume_technical.tex
+|   |-- resume_full.tex
+|   |-- resume_technical.tex
+|   `-- styles.tex
 ```
 
 
@@ -59,7 +61,7 @@ personal-website/
 - `frontend/src/components/projects/`: project card components.
 - `frontend/src/components/ui/`: shared UI primitives.
 - `frontend/src/lib/`: shared frontend utilities.
-- `resume/`: LaTeX resume source and build target.
+- `resume/`: selectable LaTeX resume sources, shared styles, and build target.
 
 
 ## Notes

@@ -1,5 +1,13 @@
 # Decisions
 
+## 2026-09-01 - Support selectable resume variants
+
+The resume build defaults to the one-page technical resume and accepts
+`RESUME=full` to publish the longer resume. Both variants use the shared LaTeX
+template and publish to `frontend/public/resume.pdf`, so the website URL remains
+stable.
+
+
 ## 2026-05-25 - Use stable public resume artifact
 
 Resume templates may change under `resume/`, but the website always serves the
